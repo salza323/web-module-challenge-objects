@@ -6,12 +6,16 @@ const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakf
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
-function createMenuItem(name, cost, category){
-    /* Code here */
+function createMenuItem(name, price, category){
+  return {name, price, category}
 }
+
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
+console.log(createMenuItem('chips', 3, 'Snacks'));
+console.log(createMenuItem('yogurt', 3, 'Brealfast'));
+console.log(createMenuItem('Enchiladas', 12, 'Dinner'));
 
 
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
@@ -24,11 +28,21 @@ and should return a number.
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
 
+burger.discount = function(person){
+  if (person === 'teacher' || person === 'student'){
+    return this.price * .75;
+  }
+  else if (person === 'public'){
+    return this.price * .9;
+  }
+}
 
+console.log(burger.discount('public'));
 
 ///////////////Reviews (MVP)///////////////////
 
-const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and wonderful vegan options!"},
+const reviews = [
+    {name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and wonderful vegan options!"},
     {name: "Jack", rating: 3, feedback:"A little too hipster for my taste, but the burger was decent, if overpriced"},
     {name: "Miranda", rating: 4, feedback:"fun trivia and cool vibes"},
     {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, it's for this place. Highly reccomend."},
@@ -40,11 +54,24 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 3: Console.log just Julius' feedback */
 
+console.log(reviews[5].feedback);
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
+function addRating(array, name, rating, feedback){
+  array.push({name, rating, feedback});
+  return array;
+}
+console.log(addRating(reviews, 'Sal', 4.0, 'Great place for happy hour, ADA accesible bar, dark environment. Left something to be desired.'));
 
-/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
+/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"*/
+
+function changeFeedback (array, index, feedback){
+  array[index].feedback = feedback;
+  return array;
+}
+
+console.log(changeFeedback(reviews, 7, 'this place is chill with really cool people, great for getting work done on weekdays'));
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
