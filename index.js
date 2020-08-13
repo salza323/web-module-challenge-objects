@@ -85,9 +85,11 @@ and should return a string in the format `{name} gave the restaurant a {rating},
  * For example, if getReviewByIndex is invoked with reviews and the number 0
  * it will return `Daniela gave the restaurant a 5 star review and their feedback was: Beautiful atmosphere and wonderful vegan options!`
 */
-function getReviewByIndex(reviews, index) {
-    /* code here */
-  }
+function getReviewByIndex(array, index) {
+  return array[index].name + ' gave the restaurant a ' + array[index].rating + ', and their feedback was: ' + array[index].feedback;
+}
+
+console.log(getReviewByIndex(reviews, 0));
   
 
 /* Task 7: Write a function to get information about the most recent review called `getLastReview`
@@ -99,8 +101,8 @@ and should return a string in the format `name} gave the restaurant a {rating}, 
 
 For example, if getLastReview is invoked passing the reviews array it will return `Reyna gave the restaurant a 3.5 star review and their feedback was: "this place is chill with really cool people, great for getting work done on weekdays"`.
 */
-function getLastReview(/* code here */) {
-    /* code here */
+function getLastReview(array) {
+  return array.length-1 + ' gave the restaurant a ' + array[index].rating + ', and their feedback was: ' + array[index].feedback;
   } 
 
 
